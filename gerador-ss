@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# Gerador de Template para Shell Script
+# Base para este template: https://github.com/slackjeff/shell-base
+
+clear
+echo "
++======================================================================================================================+
++   ________                         .___                                           _________.__           .__  .__    +
++  /  _____/  ________________     __| _/___________  ___________ ____________     /   _____/|  |__   ____ |  | |  |   +
++ /   \  ____/ __ \_  __ \__  \   / __ |/  _ \_  __ \ \____ \__  \\_  __ \__  \    \_____  \ |  |  \_/ __ \|  | |  |   +
++ \    \_\  \  ___/|  | \// __ \_/ /_/ (  <_> )  | \/ |  |_> > __ \|  | \// __ \_  /        \|   Y  \  ___/|  |_|  |__ +
++  \______  /\___  >__|  (____  /\____ |\____/|__|    |   __(____  /__|  (____  / /_______  /|___|  /\___  >____/____/ +
++         \/     \/           \/      \/              |__|       \/           \/          \/      \/     \/            +
++======================================================================================================================+"
+
+read -p "Digite seu Nome: " autor
+read -p "Digite seu E-mail: " email_autor
+read -p "Digete a Data de Criação: " data_criacao
+read -p "Digite o Nome do Programa: " nome_programa
+read -p "Digite o Nome do Executável do Programa: " nome_executavel
+read -p "Digite a Versão do Programa: " versao_programa
+read -p "Digite a Licença do Programa: " licenca
+read -p "Digite uma pequena descrição sobre o programa: " descricao_programa
+
+cat << EOF > $nome_executavel
+#!/usr/bin/env bash
+
+#-----------HEADER-------------------------------------------------------------|
+# AUTOR             : $autor <$email_autor>
+# DATA-DE-CRIAÇÃO   : $data_criacao
+# PROGRAMA          : $nome_programa
+# VERSÃO            : $versao_programa
+# LICENÇA           : $licenca
+# PEQUENA-DESCRIÇÃO : $descricao_programa
+#
+# CHANGELOG :
+#
+#------------------------------------------------------------------------------|
+
+#--------------------------------- VARIÁVEIS ---------------------------------->
+#
+# Aqui vão todas as váriaveis do programa.
+#
+#------------------------------- FIM-VARIÁVEIS --------------------------------<
+
+
+
+#----------------------------------- FUNÇÕES ---------------------------------->
+#
+# Funções vão aqui!
+#
+#--------------------------------- FIM-FUNÇÕES --------------------------------<
+
+
+
+#---------------------------------- TESTES ------------------------------------>
+#
+# Testes iniciais do seu programa vão neste bloco.
+#
+#--------------------------------- FIM-TESTES ---------------------------------<
+
+# Programa começa aqui
+
+EOF
+clear
+echo "Template $nome_executavel criado com sucesso!"
+exit
